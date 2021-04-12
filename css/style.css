@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+.intro{
+	background: #EAF0F1;
+}
+h1{ 
+	color: #fffefe;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	transition: 0.5s;
+}
+.greeting{
+	color:#213368;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+}
+.heading{
+	padding-top: 100px;
+}
+.bank{
+	padding: 10px 0px;
+}
+.act{
+	padding-top: 30px;
+}
+button{
+	border:none;
+	border-radius: 8px;
+	margin-top: 15px;
+	padding: 10px;
+	background:#7B8788; 
+	color:white;
+	letter-spacing: 1.5px;
+	font-size: 15px;
+	transition: 0.5s;
+}
+button:hover,h1:hover{
+	transform: scale(1.1);
+}
+button:hover{
+	background-color:#4C4B4B;
+}
+footer{
+	color:#213368;
+	background-color:#00bdf2;
+	letter-spacing: 0.5px;
+}
+footer p{
+	margin: 0;
+	font-size: 15px;
+}
+@media only screen and (orientation:portrait){
+	.intro{
+		display:flex;
+		flex-direction: column-reverse;
+	}
+	h1{
+		font-size: 30px;
+	}
+	.heading{
+		padding-top: 10px;
+	}
+	.bank{
+		padding: 5px 0px;
+	}
+	.act{
+		padding-bottom: 100px;
+	}
+	button{
+		margin-top: 25px;
+	}
+}
