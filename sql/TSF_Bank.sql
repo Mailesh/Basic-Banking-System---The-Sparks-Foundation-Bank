@@ -1,84 +1,94 @@
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-
--- --------------------------------------------------------
-
 --
--- Table structure for table `transaction`
+-- PostgreSQL database dump
 --
 
-CREATE TABLE `transaction` (
-  `sno` int(3) NOT NULL,
-  `sender` text NOT NULL,
-  `receiver` text NOT NULL,
-  `balance` int(8) NOT NULL,
-  `datetime` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Dumped from database version 9.6.10
+-- Dumped by pg_dump version 9.6.10
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(3) NOT NULL,
-  `name` text NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `balance` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
 
 --
--- Dumping data for table `users`
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `balance`) VALUES
-(1, 'Tony', 'stark@starkindustries.com', 50000),
-(2, 'Steven', 'rogers@shield.com', 30000),
-(3, 'Bruce', 'banner@smash.com', 40000),
-(4, 'Natalie', 'portman@undercover.com', 50000),
-(5, 'Thor', 'odinson@asdgard.com', 40000),
-(6, 'Peter', 'parker@yourneighbour.com', 30000),
-(7, 'Nick', 'fury@shield.com', 50000),
-(8, 'Clint', 'barton@arrow.com', 40000),
-(9, 'TChalla', 'panther@wakanda.com', 30000),
-(10, 'Stephen', 'strange@multiverse.com', 50000);
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
 
 --
--- Indexes for dumped tables
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
---
--- Indexes for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`sno`);
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Name: _transaction; Type: TABLE; Schema: public; Owner: rebasedata
 --
 
---
--- AUTO_INCREMENT for table `transaction`
---
-ALTER TABLE `transaction`
-  MODIFY `sno` int(3) NOT NULL AUTO_INCREMENT;
+CREATE TABLE public._transaction (
+    sno character varying(1) DEFAULT NULL::character varying,
+    sender character varying(1) DEFAULT NULL::character varying,
+    receiver character varying(1) DEFAULT NULL::character varying,
+    balance character varying(1) DEFAULT NULL::character varying,
+    datetime character varying(1) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE public._transaction OWNER TO rebasedata;
 
 --
--- AUTO_INCREMENT for table `users`
+-- Name: _users; Type: TABLE; Schema: public; Owner: rebasedata
 --
-ALTER TABLE `users`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
+CREATE TABLE public._users (
+    id smallint,
+    name character varying(7) DEFAULT NULL::character varying,
+    email character varying(25) DEFAULT NULL::character varying,
+    balance integer
+);
+
+
+ALTER TABLE public._users OWNER TO rebasedata;
+
+--
+-- Data for Name: _transaction; Type: TABLE DATA; Schema: public; Owner: rebasedata
+--
+
+COPY public._transaction (sno, sender, receiver, balance, datetime) FROM stdin;
+\.
+
+
+--
+-- Data for Name: _users; Type: TABLE DATA; Schema: public; Owner: rebasedata
+--
+
+COPY public._users (id, name, email, balance) FROM stdin;
+1	Tony	stark@starkindustries.com	50000
+2	Steven	rogers@shield.com	30000
+3	Bruce	banner@smash.com	40000
+4	Natalie	portman@undercover.com	50000
+5	Thor	odinson@asdgard.com	40000
+6	Peter	parker@yourneighbour.com	30000
+7	Nick	fury@shield.com	50000
+8	Clint	barton@arrow.com	40000
+9	TChalla	panther@wakanda.com	30000
+10	Stephen	strange@multiverse.com	50000
+\.
+
+
+--
+-- PostgreSQL database dump complete
+--
 
